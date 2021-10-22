@@ -1,0 +1,73 @@
+@import "_variables";
+@import "_reset";
+.container{
+    display: grid;
+    grid-template-rows: auto 1fr;    
+    min-height: 100vh;
+    overflow: hidden;
+    .contenido{
+        display: grid;
+        grid-template-rows: auto 1fr;
+        row-gap: 1em;
+        background-color: $bg-1;
+        color: $color-1;  
+        .options{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1em;
+            .marcador{
+                position: relative;
+                padding: .5em 3em;
+                box-shadow: 0 0 0 2px $bg-2;
+                text-align: center;
+                &::before,&::after{
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 4em;
+                    background-color: $bg-2;
+                }
+                &::before{
+                    content: "Tú";                    
+                    left: -2em;                    
+                }
+                &::after{
+                    content: "PC";
+                    right: -2em;
+                }
+                .title{
+                    font-size: 1.2em;
+                }
+            }
+        }      
+        .buttons{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            column-gap: .5em;
+            font-size: clamp(1rem,15vw, 10vw);
+            .fas{
+                padding: .5em;
+                border: 2px solid $bg-2;
+                color: $bg-2;
+                border-radius: 50%;
+                &:hover{
+                    transition: ease-in-out .5s all;
+                    color: $bg-3;
+                    border-color: $bg-3;
+                    cursor: pointer;
+                }
+                &:active{
+                    cursor: crosshair;
+                }
+            }
+        
+        }
+    }
+    .title{
+        text-align: center;
+        font-variant: small-caps;
+    }
+}

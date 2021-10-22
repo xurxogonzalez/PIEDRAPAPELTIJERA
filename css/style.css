@@ -1,0 +1,84 @@
+@charset "UTF-8";
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.container .contenido {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 1em;
+  background-color: #342661;
+  color: white;
+}
+.container .contenido .options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+.container .contenido .options .marcador {
+  position: relative;
+  padding: 0.5em 3em;
+  box-shadow: 0 0 0 2px tomato;
+  text-align: center;
+}
+.container .contenido .options .marcador::before, .container .contenido .options .marcador::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4em;
+  background-color: tomato;
+}
+.container .contenido .options .marcador::before {
+  content: "Tú";
+  left: -2em;
+}
+.container .contenido .options .marcador::after {
+  content: "PC";
+  right: -2em;
+}
+.container .contenido .options .marcador .title {
+  font-size: 1.2em;
+}
+.container .contenido .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  -moz-column-gap: 0.5em;
+       column-gap: 0.5em;
+  font-size: clamp(1rem,15vw, 10vw);
+}
+.container .contenido .buttons .fas {
+  padding: 0.5em;
+  border: 2px solid tomato;
+  color: tomato;
+  border-radius: 50%;
+}
+.container .contenido .buttons .fas:hover {
+  transition: ease-in-out 0.5s all;
+  color: teal;
+  border-color: teal;
+  cursor: pointer;
+}
+.container .contenido .buttons .fas:active {
+  cursor: crosshair;
+}
+.container .title {
+  text-align: center;
+  font-variant: small-caps;
+}/*# sourceMappingURL=style.css.map */
