@@ -53,6 +53,8 @@ const playRandom = () => {
 const playRocketPaperScissors = e => {
     if(fin)
         return;
+    if(!e.target.dataset.id)
+        return;
     jugada.innerHTML = `${nombreDeJugada[e.target.dataset.id]}-${nombreDeJugada[procesoJugada]}`;
     if (e.target.dataset.id !== procesoJugada) {
         switch (e.target.dataset.id) {
