@@ -26,6 +26,7 @@ let procesoJugada = null;
 let procesoId = null;
 let contadorPC = 0;
 let contadorTu = 0;
+let fin = false;
 //nodos
 const buttons = document.querySelector(".buttons");
 const tu = document.querySelector(".tu");
@@ -50,6 +51,8 @@ const playRandom = () => {
 }
 
 const playRocketPaperScissors = e => {
+    if(fin)
+        return;
     jugada.textContent = `${nombreDeJugada[e.target.dataset.id]}-${nombreDeJugada[procesoJugada]}`;
     if (e.target.dataset.id !== procesoJugada) {
         switch (e.target.dataset.id) {
@@ -74,6 +77,7 @@ const playRocketPaperScissors = e => {
         }
     }
     if (contadorPC === 3 || contadorTu === 3) {
+        fin = true;
         stopRandom();
         jugada.innerHTML = `<h3>Fin de partida</h3>`;
     }
