@@ -16,7 +16,7 @@ const jugadaPC = [
 ];
 
 const nombreDeJugada = {
-    "fa-hand-rock" : "Piedra",
+    "fa-hand-rock": "Piedra",
     "fa-hand-paper": "Papel",
     "fa-hand-scissors": "Tijera"
 }
@@ -54,24 +54,28 @@ const playRocketPaperScissors = e => {
     if (e.target.dataset.id !== procesoJugada) {
         switch (e.target.dataset.id) {
             case "fa-hand-rock":
-                if (procesoJugada ==="fa-hand-paper")
+                if (procesoJugada === "fa-hand-paper")
                     pc.textContent = ++contadorPC;
                 else
                     tu.textContent = ++contadorTu;
-                    break;
+                break;
             case "fa-hand-paper":
-                if (procesoJugada ==="fa-hand-scissors")
+                if (procesoJugada === "fa-hand-scissors")
                     pc.textContent = ++contadorPC;
                 else
                     tu.textContent = ++contadorTu;
-                    break;
+                break;
             case "fa-hand-scissors":
-                if (procesoJugada ==="fa-hand-rock")
+                if (procesoJugada === "fa-hand-rock")
                     pc.textContent = ++contadorPC;
                 else
                     tu.textContent = ++contadorTu;
-                    break;
+                break;
         }
+    }
+    if (contadorPC === 3 || contadorTu === 3) {
+        stopRandom();
+        jugada.innerHTML = `<h3>Fin de partida</h3>`;
     }
 }
 
