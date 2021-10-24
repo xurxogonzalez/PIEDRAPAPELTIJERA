@@ -81,7 +81,7 @@ const playRocketPaperScissors = e => {
     if (contadorPC === 3 || contadorTu === 3) {
         fin = true;
         stopRandom();
-        jugada.innerHTML = `${nombreDeJugada[e.target.dataset.id]}-${nombreDeJugada[procesoJugada]}<h3>Fin de partida</h3>`;
+        jugada.innerHTML = `${nombreDeJugada[e.target.dataset.id]}-${nombreDeJugada[procesoJugada]}<strong>Fin de partida</strong>`;
     }
 }
 
