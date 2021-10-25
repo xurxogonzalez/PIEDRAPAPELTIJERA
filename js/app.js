@@ -16,9 +16,9 @@ const jugadaPC = [
 ];
 
 const nombreDeJugada = {
-    "fa-hand-rock": "Piedra",
-    "fa-hand-paper": "Papel",
-    "fa-hand-scissors": "Tijera"
+    "fa-hand-rock": '<i class="fas fa-hand-rock"></i>',
+    "fa-hand-paper": '<i class="fas fa-hand-paper" data-id="fa-hand-paper"></i>',
+    "fa-hand-scissors": '<i class="fas fa-hand-scissors" data-id="fa-hand-scissors"></i>'
 }
 
 
@@ -26,6 +26,7 @@ let procesoJugada = null;
 let procesoId = null;
 let contadorPC = 0;
 let contadorTu = 0;
+let fin = false;
 //nodos
 const buttons = document.querySelector(".buttons");
 const tu = document.querySelector(".tu");
@@ -50,7 +51,11 @@ const playRandom = () => {
 }
 
 const playRocketPaperScissors = e => {
-    jugada.textContent = `${nombreDeJugada[e.target.dataset.id]}-${nombreDeJugada[procesoJugada]}`;
+    if(fin)
+        return;
+    if(!e.target.dataset.id)
+        return;
+    jugada.innerHTML = `${nombreDeJugada[e.target.dataset.id]}-${nombreDeJugada[procesoJugada]}`;
     if (e.target.dataset.id !== procesoJugada) {
         switch (e.target.dataset.id) {
             case "fa-hand-rock":
@@ -74,8 +79,9 @@ const playRocketPaperScissors = e => {
         }
     }
     if (contadorPC === 3 || contadorTu === 3) {
+        fin = true;
         stopRandom();
-        jugada.innerHTML = `<h3>Fin de partida</h3>`;
+        jugada.innerHTML = `${nombreDeJugada[e.target.dataset.id]}-${nombreDeJugada[procesoJugada]}<h3>Fin de partida</h3>`;
     }
 }
 
